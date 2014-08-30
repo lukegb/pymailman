@@ -35,7 +35,7 @@ class MailmanInterface(object):
         resp.raise_for_status()
 
         # XXX: hack to see if the log in worked OK
-        if 'Authorization failed.' in resp.text:
+        if 'Authorization\nfailed.' in resp.text:
             raise AuthorizationFailed
 
         self._session_primed = True
